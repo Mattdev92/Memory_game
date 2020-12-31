@@ -1,0 +1,17 @@
+.carItem{
+    width:calc(100vw/4 - 4px);
+    height:calc(100vh/3 - 4px);
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.yellow{
+    height:100%;
+    width:100%;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
