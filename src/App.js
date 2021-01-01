@@ -7,29 +7,54 @@ import Chevrolet from "./assets/chevrolet.svg";
 import Mercedes from "./assets/mercedes-benz.svg";
 import Opel from "./assets/opel.svg";
 import Volksw from "./assets/volkswagen.svg";
-import {connect} from 'react-redux';
-import {startClicked} from './actions';
-const carArray = [Audi, BMW, Chevrolet, Mercedes, Opel, Volksw,Audi, BMW, Chevrolet, Mercedes, Opel, Volksw];
-const carId = [1,2,3,4,5,6,7,8,9,10,11,12];
+import { connect } from "react-redux";
+import { startClicked } from "./actions";
+const carArray = [
+  Audi,
+  BMW,
+  Chevrolet,
+  Mercedes,
+  Opel,
+  Volksw,
+  Audi,
+  BMW,
+  Chevrolet,
+  Mercedes,
+  Opel,
+  Volksw,
+];
+const sortedCarArray = carArray.sort(() => Math.random() - 0.5);
+const carId = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 class App extends React.Component {
-    
   render() {
-    const {startClicked}=this.props;
+    const { startClicked,start,pairedArray,startTimeStamp} = this.props;
     return (
-        <>
-        <button onClick={startClicked} className="button">START</button>
+      <>
+        <button onClick={startClicked} className="button">
+          {
+            start?"Good Luck":"START"
+          }
+        </button>
         <div id="App">
-        {carArray
-          .sort(() => Math.random() - 0.5)
-          .map((carBrand,i) => (
-            <Car carBrand={carBrand} carId={carId.i}/>
-          ))}
-      </div>
+          {sortedCarArray
+            .map((carBrand, i) => (
+              <Car carBrand={carBrand} carId={carId[i]} key={carId[i]} />
+            ))}
+        </div>
+        {
+          pairedArray.length===6&&<div className="grats">SUPER ! YOUR TIME: {(Date.now() - startTimeStamp)/1000} s.</div>
+        }
       </>
     );
   }
+};
+
+const mapStateToProps = (state)=>{
+  const {start,pairedArray, startTimeStamp}=state;
+  return {start,pairedArray,startTimeStamp};
 }
-const mapDispatchToProps = (dispatch)=>({
-  startClicked: () =>dispatch(startClicked(),),
-})
-export default connect(null,mapDispatchToProps)(App);
+
+const mapDispatchToProps = (dispatch) => ({
+  startClicked: () => dispatch(startClicked()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -3,7 +3,8 @@ const initialState = {
   questionMark: "?",
   clickedArray: [],
   pairedArray: [],
-  actualCarId: null
+  actualCarId: null,
+  startTimeStamp: 0,
 };
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -22,12 +23,13 @@ const rootReducer = (state = initialState, action) => {
         pairedArray: state.clickedArray.includes(action.payload.carBrand)
           ? [...state.pairedArray, action.payload.carBrand]
           : [...state.pairedArray],
-          actualCarId: action.payload.carId
+        actualCarId: action.payload.carId,
       };
     case "START_CLICKED":
       return {
         ...state,
         start: true,
+        startTimeStamp: Date.now(),
       };
     default:
       return state;
