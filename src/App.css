@@ -1,26 +1,31 @@
-#App{
-  display:grid;
-  height:100vh;
-  width: 100vw;;
+#App {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
-.button{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  background-color:red;
-  width:70px;
+@media (max-width: 500px) {
+  #App {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
   }
- .grats{
-  position:absolute;
-  top:30%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  background-color:black;
-  color:white;
+}
+.button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  width: 90px;
+}
+.grats {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  color: white;
   font-size: 30px;
- }
-
-
+  width: 100%;
+}

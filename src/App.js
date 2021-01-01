@@ -40,7 +40,11 @@ class App extends React.Component {
           }}
           className="button"
         >
-          {start ? pairedArray.length === 6 ?"AGAIN ?": "Good Luck" : "START"}
+          {start
+            ? pairedArray.length === 6
+              ? "PLAY AGAIN"
+              : "Good Luck"
+            : "START"}
         </button>
         <div id="App">
           {sortedCarArray.map((carBrand, i) => (

@@ -9,19 +9,21 @@ const Car = ({
   start,
   carClicked,
   pairedArray,
-  carId,actualCarId
+  carId,
+  actualCarId,
 }) => {
   const [localChange, setLocalChange] = useState(false);
   return (
     <div
       className="carItem"
       onClick={() => {
-        !pairedArray.includes(carBrand) && actualCarId!==carId&&carClicked(carBrand,carId);
-        start &&
-          setLocalChange(true);
-          setTimeout(() => {
-            setLocalChange(false)
-          }, 1000);
+        !pairedArray.includes(carBrand) &&
+          actualCarId !== carId &&
+          carClicked(carBrand, carId);
+        start && setLocalChange(true);
+        setTimeout(() => {
+          setLocalChange(false);
+        }, 1000);
       }}
     >
       {pairedArray.includes(carBrand) ? (
@@ -39,10 +41,10 @@ const Car = ({
   );
 };
 const mapStateToProps = (state) => {
-  const { questionMark, click, pair, start, pairedArray,actualCarId} = state;
-  return { questionMark, click, pair, start, pairedArray,actualCarId};
+  const { questionMark, click, pair, start, pairedArray, actualCarId } = state;
+  return { questionMark, click, pair, start, pairedArray, actualCarId };
 };
 const mapDispatchToProps = (dispatch) => ({
-  carClicked: (carBrand,carId) => dispatch(carClicked(carBrand,carId)),
+  carClicked: (carBrand, carId) => dispatch(carClicked(carBrand, carId)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Car);
