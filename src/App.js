@@ -1,4 +1,3 @@
-import "./App.css";
 import React from "react";
 import Car from "./components/Car";
 import Audi from "./assets/audi.svg";
@@ -9,6 +8,8 @@ import Opel from "./assets/opel.svg";
 import Volksw from "./assets/volkswagen.svg";
 import { connect } from "react-redux";
 import { startClicked } from "./actions";
+import styles from "./App.module.scss";
+import "bulma";
 const carArray = [
   Audi,
   BMW,
@@ -33,26 +34,29 @@ class App extends React.Component {
     const { startClicked, start, pairedArray, startTimeStamp } = this.props;
     return (
       <>
-        <button
-          onClick={() => {
-            pairedArray.length !== 6 && startClicked();
-            pairedArray.length === 6 && this.handleReload();
-          }}
-          className="button"
-        >
-          {start
-            ? pairedArray.length === 6
-              ? "PLAY AGAIN"
-              : "Good Luck"
-            : "START"}
-        </button>
-        <div id="App">
+        <div className={styles.buttonContainer}>
+          <button
+            onClick={() => {
+              pairedArray.length !== 6 && startClicked();
+              pairedArray.length === 6 && this.handleReload();
+            }}
+            class="button is-success is-medium"
+          >
+            {start
+              ? pairedArray.length === 6
+                ? "PLAY AGAIN"
+                : "Good Luck"
+              : "PLAY"}
+          </button>
+        </div>
+
+        <div id={styles.App}>
           {sortedCarArray.map((carBrand, i) => (
             <Car carBrand={carBrand} carId={carId[i]} key={carId[i]} />
           ))}
         </div>
         {pairedArray.length === 6 && (
-          <div className="grats">
+          <div className={styles.grats}>
             SUPER ! YOUR TIME: {(Date.now() - startTimeStamp) / 1000} s.
           </div>
         )}

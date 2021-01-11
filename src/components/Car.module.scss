@@ -1,0 +1,34 @@
+.carItem {
+  width: calc(100vw / 4 - 4px);
+  height: calc(100vh / 3 - 4px);
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carImage {
+  width: calc(100vw / 4 - 4px);
+  height: calc(100vh / 3 - 4px);
+}
+
+@media (max-width: 500px) {
+  .carItem {
+    width: calc(100vw / 3 - 4px);
+    height: calc(100vh / 4 - 4px);
+  }
+}
+@media (max-width: 500px) {
+  .carImage {
+    width: calc(100vw / 3 - 4px);
+    height: calc(100vh / 4 - 4px);
+  }
+}
+.container {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}

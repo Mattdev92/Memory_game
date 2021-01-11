@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Car.css";
 import { connect } from "react-redux";
 import { carClicked } from "../actions";
+import styles from "./Car.module.scss";
 
 const Car = ({
   carBrand,
@@ -15,7 +15,7 @@ const Car = ({
   const [localChange, setLocalChange] = useState(false);
   return (
     <div
-      className="carItem"
+      className={styles.carItem}
       onClick={() => {
         !pairedArray.includes(carBrand) &&
           actualCarId !== carId &&
@@ -27,15 +27,15 @@ const Car = ({
       }}
     >
       {pairedArray.includes(carBrand) ? (
-        <img src={carBrand} alt="car"></img>
+        <img src={carBrand} alt="car" className={styles.carImage}></img>
       ) : start ? (
         localChange ? (
           <img src={carBrand} alt="car"></img>
         ) : (
-          <div className="yellow">{questionMark}</div>
+          <div className={styles.container}>{questionMark}</div>
         )
       ) : (
-        <div className="yellow">{questionMark}</div>
+        <div className={styles.container}>{questionMark}</div>
       )}
     </div>
   );

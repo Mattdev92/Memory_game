@@ -29,7 +29,8 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         start: true,
-        startTimeStamp: state.startTimeStamp===0?Date.now():state.startTimeStamp,
+        startTimeStamp:
+          state.startTimeStamp === 0 ? Date.now() : state.startTimeStamp,
       };
     default:
       return state;
