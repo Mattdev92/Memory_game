@@ -30,7 +30,7 @@ const Car = ({
         <img src={carBrand} alt="car" className={styles.carImage}></img>
       ) : start ? (
         localChange ? (
-          <img src={carBrand} alt="car"></img>
+          <img src={carBrand} alt="car" className={styles.carImage}></img>
         ) : (
           <div className={styles.container}>{questionMark}</div>
         )
