@@ -25,10 +25,10 @@ Project was prepared based on CRA template.
 
 npx install create-react-app name --npm
 
-State managment:
+State managment:\
 npm install--save react-redux redux
 
-Bulma css framework:
+Bulma css framework:\
 npm install react-bulma-components
 
 ## Deployment
